@@ -7,7 +7,8 @@ public enum ResultCodeEnum {
 
     SUCCESS(200,"成功"),
     FAIL(201, "失败"),
-    LOGIN_ERROR(204,"认证失败")
+    LOGIN_ERROR(204,"认证失败"),
+    PERMISSION(205, "没有操作权限")
     ;
 
     private Integer code;
