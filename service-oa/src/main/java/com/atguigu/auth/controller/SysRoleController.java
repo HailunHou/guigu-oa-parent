@@ -28,6 +28,7 @@ public class SysRoleController {
     @Autowired
     private SysRoleService sysRoleService;
 
+    @PreAuthorize("hasAuthority('bnt.sysUser.list')")
     @ApiOperation(value = "根据用户获取角色数据")
     @GetMapping("/toAssign/{userId}")
     public Result toAssign(@PathVariable Long userId) {
@@ -35,6 +36,7 @@ public class SysRoleController {
         return Result.ok(roleMap);
     }
 
+    @PreAuthorize("hasAuthority('bnt.sysUser.assignRole')")
     @ApiOperation(value = "根据用户分配角色")
     @PostMapping("/doAssign")
     public Result doAssign(@RequestBody AssginRoleVo assginRoleVo) {
