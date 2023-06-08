@@ -14,7 +14,6 @@ import org.springframework.context.annotation.ComponentScan;
  @create 2023-05-13 19:03
  */
 @SpringBootApplication
-@ComponentScan("com.atguigu")
 public class ServiceAuthApplication {
 
     public static void main(String[] args) {
