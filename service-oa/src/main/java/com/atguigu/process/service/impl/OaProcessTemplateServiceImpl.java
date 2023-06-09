@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
@@ -51,5 +52,17 @@ public class OaProcessTemplateServiceImpl extends ServiceImpl<OaProcessTemplateM
             }
         }
         return page;
+    }
+
+    @Transactional
+    @Override
+    public void publish(Long id) {
+        ProcessTemplate processTemplate = baseMapper.selectById(id);
+        processTemplate.setStatus(1);
+        baseMapper.updateById(processTemplate);
+
+        //TODO 后续完善，流程定义部署
+
+
     }
 }
